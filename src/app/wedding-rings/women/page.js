@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import FilterSection from '../FilterSection';
 import Modal from '../Modal'; // Import the Modal component
+import Image from 'next/image';
 
 const Women = () => {
   const [hoveredRing, setHoveredRing] = useState(null);
@@ -89,7 +90,7 @@ const Women = () => {
       {/* Hero Section */}
       <div className="relative h-[400px] w-full">
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="https://cdn.shopify.com/s/files/1/0644/3067/0060/files/Banner_-_Wedding_Ring_-_womens_-_desktop_2000x2000.jpg?v=1741931280"
             alt="Wedding rings"
             className="w-full h-full object-cover"

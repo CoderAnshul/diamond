@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import React, { useState } from 'react'
 
 const Earrings = () => {
@@ -22,7 +23,7 @@ const Earrings = () => {
       <div className="relative h-[400px] w-full">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img 
+          <Image 
             src="https://cdn.shopify.com/s/files/1/0644/3067/0060/files/Banner-Earring-Hero-Website_1_2000x2000.jpg?v=1696554630"
             alt="Woman showing rings"
             className="w-full h-full object-cover"
