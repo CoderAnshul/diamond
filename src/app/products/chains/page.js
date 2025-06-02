@@ -22,7 +22,7 @@ const Chains = () => {
       <div className="relative h-[400px] w-full">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="https://cdn.shopify.com/s/files/1/0644/3067/0060/files/Chains_Banner_1400x1400.jpg?v=1748392868"
             alt="Woman showing rings"
             className="w-full h-full object-cover"
