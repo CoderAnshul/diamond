@@ -3,9 +3,6 @@
     "env": {
       "NEXT_DISABLE_ESLINT": "true"
     }
-  },
-  "eslint": {
-    "ignoreDuringBuilds": true
   }
 }
 
