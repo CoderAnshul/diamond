@@ -105,14 +105,14 @@ const Education = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-white">
+    <div className="max-w-7xl mx-auto px-4 py-16 ">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
-          Shop By Category
+          Education
         </h1>
         <p className="text-gray-600 text-xs">
-          Explore engagement rings, women's wedding rings, men's wedding rings and fine jewellery.
+          We provide industry-leading guidance on fine jewellery and in-depth education for lab grown diamonds and moissanite stones, along with the anatomy of an engagement ring.
         </p>
       </div>
 
@@ -147,34 +147,23 @@ const Education = () => {
                 </div>
 
                 {/* Style Name */}
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-semibold text-gray-900 tracking-wide uppercase">{style.name}</h3>
-                  <svg
-                    className="w-5 h-4 text-gray-600 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="flex items-center justify-start gap-4">
+                  <h3 className="text-xs font-semibold font-gintoNord text-gray-900 tracking-wide uppercase">{style.name}</h3>
+                   <svg
+                        className="w-5 h-4 text-gray-600 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        {/* Arrow with tail */}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <line x1="0" y1="12" x2="15" y2="12" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
+                    </svg>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Navigation dots */}
-      <div className="flex justify-center mt-8 space-x-2">
-        {Array.from({ length: maxSlides + 1 }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-              currentSlide === index ? 'bg-gray-800' : 'bg-gray-300'
-            }`}
-          />
-        ))}
       </div>
     </div>
   )

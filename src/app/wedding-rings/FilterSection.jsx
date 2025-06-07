@@ -10,13 +10,38 @@ const FilterSection = ({
   onSelectAllMetals, 
   onResetMetals 
 }) => {
-  // Women's setting styles
+  // Women's setting styles with images
   const womenSettingStyles = [
-    { id: 'PAVE', name: 'PAVE', icon: '○○○○○○○' },
-    { id: 'CURVED', name: 'CURVED', icon: '～～～～～' },
-    { id: 'ACCENTS', name: 'ACCENTS', icon: '◇◇◇◇◇' },
-    { id: 'PLAIN', name: 'PLAIN', icon: '――――――' },
-    { id: 'OPEN', name: 'OPEN', icon: '∪ ∪' }
+    { 
+      id: 'PAVE', 
+      name: 'PAVE', 
+      icon: '○○○○○○○', // Keep as fallback
+      image: '/images/wedsettingstyle/Pave.svg'
+    },
+    { 
+      id: 'CURVED', 
+      name: 'CURVED', 
+      icon: '～～～～～', // Keep as fallback
+      image: '/images/wedsettingstyle/Curved.svg'
+    },
+    { 
+      id: 'ACCENTS', 
+      name: 'ACCENTS', 
+      icon: '◇◇◇◇◇', // Keep as fallback
+      image: '/images/wedsettingstyle/Accents.svg'
+    },
+    { 
+      id: 'PLAIN', 
+      name: 'PLAIN', 
+      icon: '――――――', // Keep as fallback
+      image: '/images/wedsettingstyle/Plain.svg'
+    },
+    { 
+      id: 'OPEN', 
+      name: 'OPEN', 
+      icon: '∪ ∪', // Keep as fallback
+      image: '/images/wedsettingstyle/Open.svg'
+    }
   ];
 
   // Men's setting styles
@@ -85,7 +110,7 @@ const FilterSection = ({
                 WOMEN
               </button>
               <button 
-                className={`px-12 py-3 w-1/2 cursor-pointer font-semibold text-xs transition-colors ${
+                className={`px-12 py-3 w-1/2 cursor-pointer font-semibold text-xs font-gintoNord transition-colors ${
                   selectedGender === 'MEN' 
                     ? 'bg-green-700 text-white' 
                     : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -98,11 +123,11 @@ const FilterSection = ({
           </div>
 
           {/* Filters */}
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 flex-wrap">
             {/* Setting Style */}
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-xs font-medium text-gray-700 uppercase tracking-wide">SETTING STYLE</h3>
+                <h3 className="text-[10px] font-medium text-gray-700 font-gintoNord uppercase tracking-wide">SETTING STYLE</h3>
                 <span className="text-gray-400 text-xs">?</span>
               </div>
               
@@ -112,14 +137,33 @@ const FilterSection = ({
                     <button
                       key={style.id}
                       onClick={() => onStyleChange(style.id)}
-                      className={`flex flex-col items-center p-3 border-2 rounded-lg transition-all flex-shrink-0 ${
-                        selectedStyle === style.id 
-                          ? 'border-gray-800 bg-gray-50' 
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                      className="flex flex-col items-center p-3 transition-all flex-shrink-0"
                     >
-                      <div className="w-16 h-8 flex items-center justify-center text-gray-600 text-xs mb-1">
-                        {style.icon}
+                      <div className={`w-16 h-8 flex items-center justify-center mb-1 rounded transition-all ${
+                        selectedStyle === style.id 
+                          ? 'border-2 border-gray-800' 
+                          : 'border-2 border-transparent'
+                      }`}>
+                        {style.image ? (
+                          <img 
+                            src={style.image} 
+                            alt={style.name}
+                            className="w-full h-full brightness-0 object-contain"
+                            onError={(e) => {
+                              // Fallback to text icon if image fails to load
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'block';
+                            }}
+                          />
+                        ) : (
+                          <span className="text-gray-600 text-xs">{style.icon}</span>
+                        )}
+                        <span 
+                          className="text-gray-600 text-xs"
+                          style={{ display: style.image ? 'none' : 'block' }}
+                        >
+                          {style.icon}
+                        </span>
                       </div>
                       <span className="text-xs text-gray-700 font-medium text-center whitespace-nowrap">{style.name}</span>
                     </button>
@@ -131,7 +175,7 @@ const FilterSection = ({
             {/* Metal Type */}
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-xs font-medium text-gray-700 uppercase tracking-wide">
+                <h3 className="text-[10px] font-medium text-gray-700 font-gintoNord uppercase tracking-wide">
                   METAL {selectedGender === 'MEN' ? 'TYPES' : 'TYPE'}
                 </h3>
                 <span className="text-gray-400 text-xs">?</span>
@@ -152,7 +196,7 @@ const FilterSection = ({
                   </>
                 )}
                 {selectedGender === 'WOMEN' && (
-                  <button className="ml-auto text-xs text-gray-500 underline">SHOW ALL</button>
+                  <button className="ml-auto text-[10px] font-gintoNord text-gray-500 underline">SHOW ALL</button>
                 )}
               </div>
               
@@ -162,13 +206,13 @@ const FilterSection = ({
                     <button
                       key={metal.id}
                       onClick={() => onMetalSelect(metal.id)}
-                      className={`flex flex-col items-center p-3 border-2 rounded-lg transition-all flex-shrink-0 ${
-                        selectedMetals.includes(metal.id)
-                          ? 'border-gray-800 bg-gray-50' 
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                      className="flex flex-col items-center p-3 transition-all flex-shrink-0"
                     >
-                      <div className={`w-8 h-8 rounded-full ${metal.color} mb-2`}></div>
+                      <div className={`w-8 h-8 rounded-full mb-2 ${metal.color} ${
+                        selectedMetals.includes(metal.id)
+                          ? 'ring-2 ring-gray-800' 
+                          : 'ring-2 ring-transparent'
+                      }`}></div>
                       <span className="text-xs text-gray-700 font-medium text-center leading-tight whitespace-nowrap">
                         {metal.name}
                       </span>

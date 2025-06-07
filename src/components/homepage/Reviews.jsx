@@ -284,21 +284,21 @@ const Reviews = () => {
   )
 
   return (
-    <div className="bg-white relative py-16">
+    <div className="relative py-16">
       <div className="w-full mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
+          <h2 className="text-2xl md:text-3xl font-arizona font-light text-black mb-3">
             What Our Clients Say
           </h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-black font-gintoNormal text-sm font-light">
             Here's what our clients have to say about their Cullen experience.
           </p>
         </div>
 
         {/* Reviews Slider Container */}
-        <div className="bg p-6">
-          <div className="relative overflow-hidden">
+        <div className="bg p-6 relative">
+          <div className=" overflow-hidden">
             <div
               ref={sliderRef}
               className={`flex transition-transform duration-500 ease-in-out items-start ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -323,7 +323,7 @@ const Reviews = () => {
                 >
                   <div 
                     ref={el => cardRefs.current[index] = el}
-                    className="bg-white p-4 md:p-6 transition-all duration-300 shadow-sm border border-gray-100"
+                    className="bg-white p-4 md:p-6 transition-all  duration-300 shadow-sm border border-gray-100"
                     style={{ height: `${maxHeight}px` }}
                   >
                     {item.type === 'summary' ? (

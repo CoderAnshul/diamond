@@ -2,23 +2,27 @@
 
 import React, { useState } from 'react';
 import { Search, ShoppingBag, Menu, X, Instagram, Facebook, Youtube, ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showJewelleryDropdown, setShowJewelleryDropdown] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const [showWeddingDropdown, setShowWeddingDropdown] = useState(false);
+  const [showEngagementDropdown, setShowEngagementDropdown] = useState(false);
+  const [showContactDropdown, setShowContactDropdown] = useState(false);
 
 const navItems = [
   { name: 'READY-TO-SHIP', href: '/ready-to-ship' },
-  { name: 'ENGAGEMENT', href: '/engagement' },
-  { name: 'WEDDING', href: '/wedding', hasDropdown: true },
+  { name: 'ENGAGEMENT RINGS', href: '/engagement', hasDropdown: true },
+  { name: 'WEDDING RINGS', href: '/wedding', hasDropdown: true },
   { name: 'FINE JEWELLERY', href: '/fine-jewellery', hasDropdown: true }
 ];
 
   const rightNavItems = [
     { name: 'EDUCATION', href: '/education' },
-    { name: 'CONTACT', href: '/contact' },
+    { name: 'CONTACT', href: '/contact' , hasDropdown: true },
     { name: 'VISIT', href: '/visit' }
   ];
 
@@ -58,7 +62,51 @@ const navItems = [
   // Mobile accordion categories
 const mobileAccordionItems = [
   {
-    title: 'WEDDING',
+    title: 'ENGAGEMENT RINGS',
+    subcategories: [
+      {
+        name: 'BUILD A RING',
+        items: [
+          { name: 'Browse Settings', href: '/engagement-rings/build-rings' },
+          { name: 'Ready-to-Ship Rings', href: '/engagement-rings/build-rings' },
+          { name: 'Custom-Made Rings', href: '/engagement-rings/build-rings' }
+        ]
+      },
+      {
+        name: 'SHOP BY METAL',
+        items: [
+          { name: 'Platinum', href: '/engagement-rings/build-rings' },
+          { name: 'Yellow Gold', href: '/engagement-rings/build-rings' },
+          { name: 'Rose Gold', href: '/engagement-rings/build-rings' },
+          { name: 'White Gold', href: '/engagement-rings/build-rings' }
+        ]
+      },
+      {
+        name: 'SHOP BY STYLE',
+        items: [
+          { name: 'Solitaire', href: '/engagement-rings/build-rings' },
+          { name: 'Trilogy', href: '/engagement-rings/build-rings' },
+          { name: 'Halo', href: '/engagement-rings/build-rings' },
+          { name: 'Toi et Moi', href: '/engagement-rings/build-rings' },
+          { name: 'Bezel', href: '/engagement-rings/build-rings' },
+          { name: 'East West', href: '/engagement-rings/build-rings' }
+        ]
+      },
+      {
+        name: 'ENGAGEMENT RING GUIDANCE',
+        items: [
+          { name: 'Design Basics', href: '/engagement-rings/build-rings' },
+          { name: 'Engagement Ring Guide', href: '/engagement-rings/build-rings' },
+          { name: 'Find Your Ring Size', href: '/engagement-rings/build-rings' },
+          { name: 'Precious Metals Guide', href: '/engagement-rings/build-rings' },
+          { name: 'Our Crafting Process', href: '/engagement-rings/build-rings' },
+          { name: 'Ring Care Guide', href: '/engagement-rings/build-rings' }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'WEDDING RINGS',
     subcategories: [
       {
         name: 'WOMEN',
@@ -66,7 +114,7 @@ const mobileAccordionItems = [
           { name: 'All Women\'s Wedding Rings', href: '/wedding-rings/women' },
           { name: 'Pavé Wedding Rings', href: '/wedding-rings/women' },
           { name: 'Curved Wedding Rings', href: '/wedding-rings/women' },
-          { name: 'Accent Wedding Rings',href: '/wedding-rings/women' }
+          { name: 'Accent Wedding Rings', href: '/wedding-rings/women' }
         ]
       },
       {
@@ -82,18 +130,18 @@ const mobileAccordionItems = [
         name: 'MEN',
         items: [
           { name: 'All Men\'s Wedding Rings', href: '/wedding-rings/women' },
-          { name: 'Classic Wedding Rings',href: '/wedding-rings/women' },
+          { name: 'Classic Wedding Rings', href: '/wedding-rings/women' },
           { name: 'Multi-Colour Wedding Rings', href: '/wedding-rings/women' },
-          { name: 'Unique Wedding Rings',href: '/wedding-rings/women' }
+          { name: 'Unique Wedding Rings', href: '/wedding-rings/women' }
         ]
       },
       {
         name: 'MEN\'S BY METAL',
         items: [
-          { name: 'Platinum',href: '/wedding-rings/women'},
+          { name: 'Platinum', href: '/wedding-rings/women'},
           { name: 'Yellow Gold', href: '/wedding-rings/women' },
-          { name: 'Rose Gold',href: '/wedding-rings/women' },
-          { name: 'White Gold',href: '/wedding-rings/women' },
+          { name: 'Rose Gold', href: '/wedding-rings/women' },
+          { name: 'White Gold', href: '/wedding-rings/women' },
           { name: 'Titanium', href: '/wedding-rings/women' },
           { name: 'Tantalum', href: '/wedding-rings/women' },
           { name: 'Carbon Fibre', href: '/wedding-rings/women' }
@@ -119,8 +167,8 @@ const mobileAccordionItems = [
         items: [
           { name: 'Rings', href: '/wedding-rings/women' },
           { name: 'Earrings', href: '/wedding-rings/women' },
-          { name: 'Bracelets',href: '/wedding-rings/women'},
-          { name: 'Chains',href: '/wedding-rings/women' },
+          { name: 'Bracelets', href: '/wedding-rings/women'},
+          { name: 'Chains', href: '/wedding-rings/women' },
           { name: 'Pendants', href: '/wedding-rings/women' }
         ]
       },
@@ -139,11 +187,11 @@ const mobileAccordionItems = [
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="sticky top-0 w-full h-24 bg-[#FEFAF5] z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24">
+      <nav className="sticky top-0 w-full xl:h-32 bg-[#FEFAF5] z-40">
+        <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20 xl:h-32">
             {/* Mobile Menu Button - Left side on mobile */}
-            <div className="xl:hidden">
+            <div className="xl:hidden w-12 flex justify-start">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-gray-800 hover:text-gray-600 transition-colors duration-200"
@@ -153,7 +201,7 @@ const mobileAccordionItems = [
             </div>
 
             {/* Left Navigation Items - Desktop only */}
-            <div className="hidden xl:flex items-center space-x-8">
+            <div className="hidden xl:flex xl:w-[40%] items-center justify-between">
               {navItems.map((item) => (
                 <div
                     key={item.name}
@@ -162,24 +210,30 @@ const mobileAccordionItems = [
                       if (item.hasDropdown) {
                         if (item.name === 'FINE JEWELLERY') {
                           setShowJewelleryDropdown(true);
-                        } else if (item.name === 'WEDDING') {
+                        } else if (item.name === 'WEDDING RINGS') {
                           setShowWeddingDropdown(true);
                         }
+                        else if (item.name === 'ENGAGEMENT RINGS') {
+                        setShowEngagementDropdown(true);
+                      }
                       }
                     }}
                     onMouseLeave={() => {
                       if (item.hasDropdown) {
                         if (item.name === 'FINE JEWELLERY') {
                           setShowJewelleryDropdown(false);
-                        } else if (item.name === 'WEDDING') {
-                          setShowWeddingDropdown(false);
-                        }
+                        } else if (item.name === 'WEDDING RINGS') {
+                        setShowWeddingDropdown(false);
+                      }
+                      else if (item.name === 'ENGAGEMENT RINGS') {
+      setShowEngagementDropdown(false);
+    }
                       }
                     }}
                   >
                   <a
                     href={item.href}
-                    className="text-gray-800 hover:text-[#236339] text-xs font-semibold tracking-wide transition-colors duration-200"
+                    className="text-gray-800 hover:text-[#236339] text-xs font-semibold font-gintoNord tracking-wide transition-colors duration-200"
                   >
                     {item.name}
                   </a>
@@ -188,25 +242,39 @@ const mobileAccordionItems = [
             </div>
 
             {/* Logo - Centered on mobile, normal position on desktop */}
-            <div className="flex-shrink-0 lg:static absolute md:relative left-1/2 md:left-auto md:translate-0 transform -translate-x-1/2 lg:transform-none">
-              <a href="/" className="text-2xl md:text-3xl font-semibold tracking-[0.2em] text-gray-900">
+            <div className="flex-shrink-0 xl:static absolute left-1/2 transform -translate-x-1/2 xl:transform-none">
+              <a href="/" className="text-xl md:text-3xl lg:text-4xl font-semibold tracking-[0.2em] text-gray-900">
                 CULLEN
               </a>
             </div>
 
             {/* Right side - Desktop: Navigation + Icons, Mobile: Shopping bag only */}
-            <div className="flex items-center gap-6">
+            <div className="flex xl:w-[40%] w-fit items-center gap-6">
               {/* Desktop Navigation */}
-              <div className="hidden xl:flex items-center space-x-8">
-                {rightNavItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-800 hover:text-[#236339] text-xs font-semibold font-cullen tracking-wide transition-colors duration-200"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+              <div className="hidden xl:flex items-center space-x-8 w-full justify-between">
+                  {rightNavItems.map((item) => (
+                    <div
+                      key={item.name}
+                      className="relative"
+                      onMouseEnter={() => {
+                        if (item.hasDropdown && item.name === 'CONTACT') {
+                          setShowContactDropdown(true);
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        if (item.hasDropdown && item.name === 'CONTACT') {
+                          setShowContactDropdown(false);
+                        }
+                      }}
+                    >
+                      <Link
+                        href={item.href}
+                        className="text-gray-800 hover:text-[#236339] text-xs font-semibold font-gintoNord tracking-wide transition-colors duration-200"
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
                 
                 {/* Currency Selector */}
                 <div className="relative">
@@ -229,7 +297,7 @@ const mobileAccordionItems = [
               </div>
 
               {/* Mobile Shopping Bag Icon */}
-              <div className="xl:hidden">
+              <div className="xl:hidden w-12 flex justify-end">
                 <button className="text-gray-800 hover:text-gray-600 transition-colors duration-200">
                   <ShoppingBag size={20} />
                 </button>
@@ -239,249 +307,506 @@ const mobileAccordionItems = [
         </div>
       </nav>
 
-      {/* Fine Jewellery Dropdown Menu */}
-      {showJewelleryDropdown && (
-        <div 
-          className="fixed top-15 left-0 w-full bg-[#FEFAF5] border-gray-200 shadow-lg z-50"
-          onMouseEnter={() => setShowJewelleryDropdown(true)}
-          onMouseLeave={() => setShowJewelleryDropdown(false)}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="flex gap-12">
-              {/* Left Side - Text Categories */}
-              <div className="w-48">
-                <div>
-                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-                    JEWELLERY
-                  </h3>
-                  <div className="space-y-4">
-                    <a href="/products/rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-                      Rings
-                    </a>
-                    <a href="/products/earrings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-                      Earrings
-                    </a>
-                    <a href="/products/bracelets" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-                      Bracelets
-                    </a>
-                    <a href="/products/chains" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-                      Chains
-                    </a>
-                    <a href="/products/pendants" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-                      Pendants
-                    </a>
+      <div>
+        {/* Fine Jewellery Dropdown Menu */}
+        {showJewelleryDropdown && (
+          <div 
+            className="fixed top-16 left-0 w-full pt-4 border-gray-200 shadow-lg z-50"
+            onMouseEnter={() => setShowJewelleryDropdown(true)}
+            onMouseLeave={() => setShowJewelleryDropdown(false)}
+          >
+          <div 
+            className="w-full cream border-gray-200 shadow-lg z-50"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <div className="flex gap-12">
+                {/* Left Side - Text Categories */}
+                <div className="w-48">
+                  <div>
+                    <h3 className="text-gray-700 text-sm font-medium font-gintoNord tracking-wide mb-6">
+                      JEWELLERY
+                    </h3>
+                    <div className="space-y-4">
+                      <a href="/products/rings" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                        Rings
+                      </a>
+                      <a href="/products/earrings" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                        Earrings
+                      </a>
+                      <a href="/products/bracelets" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                        Bracelets
+                      </a>
+                      <a href="/products/chains" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                        Chains
+                      </a>
+                      <a href="/products/pendants" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                        Pendants
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Side - 2x2 Grid of Ring Categories */}
-              <div className="flex-1">
-                <div className="grid grid-cols-2 gap-4 max-w-full">
-                  {/* Statement Rings */}
-                  <div className="group cursor-pointer">
-                    <div className="relative overflow-hidden  lg:mb-2 h-32">
-                           <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] transition-colors duration-200">
-                      STATEMENT RINGS
-                    </h3>
-                      <div className="w-full h-full bg-slate-300 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-slate-600 rounded-full shadow-lg transform rotate-12"></div>
-                        <div className="w-12 h-12 bg-slate-700 rounded-full shadow-lg transform -rotate-12 -ml-4"></div>
-                      </div>
-                    </div>
-               
-                  </div>
-
-                  {/* Stacker Rings */}
-                  <div className="group cursor-pointer">
-                    <div className="relative overflow-hidden lg:mb-2 h-32">
-                    <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] transition-colors duration-200">
-                      STACKER RINGS
-                    </h3>
-                      <div className="w-full h-full bg-yellow-200 flex items-center justify-center">
-                        <div className="flex space-x-1">
-                          <div className="w-3 h-12 bg-yellow-500 rounded-full transform rotate-12"></div>
-                          <div className="w-3 h-12 bg-yellow-400 rounded-full"></div>
-                          <div className="w-3 h-12 bg-yellow-500 rounded-full transform -rotate-12"></div>
-                          <div className="w-3 h-12 bg-yellow-600 rounded-full transform rotate-6"></div>
-                          <div className="w-3 h-12 bg-yellow-400 rounded-full transform -rotate-6"></div>
+                {/* Right Side - 2x2 Grid of Ring Categories */}
+                <div className="flex-1">
+                  <div className="grid grid-cols-2 gap-4 max-w-full">
+                    {/* Statement Rings */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden lg:mb-2 h-44">
+                        <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                          STATEMENT RINGS
+                        </h3>
+                        <div className="w-full h-full bg-slate-300 flex items-center justify-center">
+                          <Image
+                            src="/images/statement-ring.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Minimal Rings */}
-                  <div className="group cursor-pointer">
-                    <div className="relative overflow-hidden  lg:mb-2 h-32">
-                      <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] transition-colors duration-200">
-                      MINIMAL RINGS
-                    </h3>
-                      <div className="w-full h-full bg-pink-200 flex items-center justify-center">
-                        <div className="w-20 h-20 border-4 border-pink-400 rounded-full"></div>
-                      </div>
-                    </div>
-                    
-                  </div>
-
-                  {/* Initial Signet Ring */}
-                  <div className="group cursor-pointer">
-                    <div className="relative overflow-hidden  lg:mb-2 h-32">
-                      <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] transition-colors duration-200">
-                      INITIAL SIGNET RING
-                    </h3>
-                      <div className="w-full h-full bg-blue-200 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                          <span className="text-white font-bold text-lg">A</span>
+                    {/* Stacker Rings */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden lg:mb-2 h-44">
+                      <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                        STACKER RINGS
+                      </h3>
+                        <div className="w-full h-full bg-yellow-200 flex items-center justify-center">
+                          <Image
+                            src="/images/stacker-ring.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
                         </div>
                       </div>
                     </div>
-                    
+
+                    {/* Minimal Rings */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden  lg:mb-2 h-44">
+                        <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                        MINIMAL RINGS
+                      </h3>
+                        <div className="w-full h-full bg-pink-200 flex items-center justify-center">
+                          <Image
+                            src="/images/minimal-ring.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                    {/* Initial Signet Ring */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden  lg:mb-2 h-44">
+                        <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                        INITIAL SIGNET RING
+                      </h3>
+                        <div className="w-full h-full bg-blue-200 flex items-center justify-center">
+                          <Image
+                            src="/images/signet-ring.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-
-{showWeddingDropdown && (
-  <div 
-    className="fixed top-15 left-0 w-full bg-[#FEFAF5] border-gray-200 shadow-lg z-50"
-    onMouseEnter={() => setShowWeddingDropdown(true)}
-    onMouseLeave={() => setShowWeddingDropdown(false)}
-  >
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="flex gap-12">
-        {/* Left Side - Women's Section */}
-        <div className="w-60">
-          <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-            WOMEN
-          </h3>
-          <div className="space-y-4">
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              All Women's Wedding Rings
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Pavé Wedding Rings
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Curved Wedding Rings
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Accent Wedding Rings
-            </a>
           </div>
-        </div>
-
-        {/* Middle - Women's by Metal */}
-        <div className="w-60">
-          <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-            WOMEN'S BY METAL
-          </h3>
-          <div className="space-y-4">
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 mr-3"></div>
-              Platinum
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 mr-3"></div>
-              18k Yellow Gold
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 mr-3"></div>
-              18k Rose Gold
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-300 mr-3"></div>
-              18k White Gold
-            </a>
-          </div>
-        </div>
-
-        {/* Right Side - Men's Section */}
-        <div className="w-60">
-          <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-            MEN
-          </h3>
-          <div className="space-y-4">
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              All Men's Wedding Rings
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Classic Wedding Rings
-            </a>
-            <a hhref="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Multi-Colour Wedding Rings
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Unique Wedding Rings
-            </a>
-          </div>
-        </div>
-
-        {/* Far Right - Men's by Metal */}
-        <div className="w-60">
-          <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-            MEN'S BY METAL
-          </h3>
-          <div className="space-y-4">
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 mr-3"></div>
-              Platinum
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 mr-3"></div>
-              Yellow Gold
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 mr-3"></div>
-              Rose Gold
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-300 mr-3"></div>
-              White Gold
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 mr-3"></div>
-              Titanium
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 mr-3"></div>
-              Tantalum
-            </a>
-            <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-900 to-black mr-3"></div>
-              Carbon Fibre
-            </a>
-          </div>
-        </div>
-
-        {/* Wedding Ring Guidance */}
-        <div className="w-60">
-          <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6">
-            WEDDING RING GUIDANCE
-          </h3>
-          <div className="space-y-4">
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Wedding Ring Guide
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Design Basics
-            </a>
-            <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Find Your Ring Size
-            </a>
-            <a href="/precious-metals-guide" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Precious Metals Guide
-            </a>
-            <a href="/crafting-process" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
-              Our Crafting Process
-            </a>
-          </div>
-        </div>
+        )}
       </div>
-    </div>
-  </div>
-)}
+      {/* Engagement Rings Dropdown Menu */}
+       {showEngagementDropdown && (
+            <div 
+              className="fixed top-16 left-0 w-full pt-4 border-gray-200 shadow-lg z-50"
+              onMouseEnter={() => setShowEngagementDropdown(true)}
+              onMouseLeave={() => setShowEngagementDropdown(false)}
+            >
+            <div 
+              className="w-full bg-[#FEFAF5] border-gray-200 shadow-lg z-50"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="flex gap-12">
+                  {/* BUILD A RING */}
+                  <div className="w-60">
+                    <h3 className="text-gray-700 text-sm font-gintoNord font-me-700 font-ge tracking-wide mb-6">
+                      BUILD A RING
+                    </h3>
+                    <div className="space-y-4">
+                      <a href="/browse-settings" className="flex items-center font-gintoNord text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200">
+                        <div className="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        </div>
+                        Browse Settings
+                      </a>
+                    </div>
+                    
+                    <div className="mt-8">
+                      <h4 className="text-gray-700 font-gintoNord  text-xs font-medium tracking-wide">
+                        READY-TO-SHIP RINGS
+                      </h4>
+                    </div>
+                    
+                    <div className="mt-3">
+                      <h4 className="text-gray-700 text-xs font-gintoNord font-medium tracking-wide mb-4">
+                        CUSTOM-MADE RINGS
+                      </h4>
+                    </div>
+                  </div>
+
+                  {/* SHOP BY METAL */}
+                  <div className="w-60">
+                    <h3 className="text-gray-700 font-gintoNord text-sm font-medium tracking-wide mb-6">
+                      SHOP BY METAL
+                    </h3>
+                    <div className="space-y-4">
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 mr-3"></div>
+                        Platinum
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 mr-3"></div>
+                        Yellow Gold
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 mr-3"></div>
+                        Rose Gold
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-300 mr-3"></div>
+                        White Gold
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* SHOP BY STYLE */}
+                  <div className="w-60">
+                    <h3 className="text-gray-700 font-gintoNord text-sm font-medium tracking-wide mb-6">
+                      SHOP BY STYLE
+                    </h3>
+                    <div className="space-y-4">
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                          <div className="w-4 h-4 border-2 border-gray-400 rounded-full flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                        </div>
+                        Solitaire
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                          <div className="flex space-x-0.5">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                          </div>
+                        </div>
+                        Trilogy
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center relative">
+                          <div className="w-3 h-3 border border-gray-400 rounded-full flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                          </div>
+                          <div className="absolute -top-0.5 -left-0.5 w-1 h-1 bg-gray-300 rounded-full"></div>
+                          <div className="absolute -top-0.5 -right-0.5 w-1 h-1 bg-gray-300 rounded-full"></div>
+                          <div className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-gray-300 rounded-full"></div>
+                          <div className="absolute -bottom-0.5 -right-0.5 w-1 h-1 bg-gray-300 rounded-full"></div>
+                        </div>
+                        Halo
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                          <div className="flex space-x-1">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                        </div>
+                        Toi et Moi
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                          <div className="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                          </div>
+                        </div>
+                        Bezel
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                          <div className="w-4 h-2 border-2 border-gray-400 rounded-full"></div>
+                        </div>
+                        East West
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* ENGAGEMENT RING GUIDANCE */}
+                  <div className="w-60">
+                    <h3 className="text-gray-700 tex-700 font-gintoNord font-medium tracking-wide mb-6">
+                      ENGAGEMENT RING GUIDANCE
+                    </h3>
+                    <div className="space-y-4">
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Design Basics
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Engagement Ring Guide
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Find Your Ring Size
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Precious Metals Guide
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Our Crafting Process
+                      </a>
+                      <a href="/engagement-rings/build-rings" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                        Ring Care Guide
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          )}
+        {showWeddingDropdown && (
+          <div 
+            className="fixed top-16 left-0 w-full pt-4 border-gray-200 shadow-lg z-50"
+            onMouseEnter={() => setShowWeddingDropdown(true)}
+            onMouseLeave={() => setShowWeddingDropdown(false)}
+          >
+          <div 
+            className=" bg-[#FEFAF5] border-gray-200 shadow-lg z-50"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <div className="flex gap-12">
+                {/* Left Side - Women's Section */}
+                <div className="w-60">
+                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6 font-gintoNord ">
+                    WOMEN
+                  </h3>
+                  <div className="space-y-4">
+                    <a href="/wedding-rings/women" className="block text-gray-900  hover:text-[#236339] font-gintoNormal text-sm transition-colors duration-200">
+                      All Women's Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                      Pavé Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                      Curved Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm font-gintoNormal transition-colors duration-200">
+                      Accent Wedding Rings
+                    </a>
+                  </div>
+                </div>
+
+                {/* Middle - Women's by Metal */}
+                <div className="w-60">
+                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6 font-gintoNord ">
+                    WOMEN'S BY METAL
+                  </h3>
+                  <div className="space-y-4">
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 mr-3"></div>
+                      Platinum
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 mr-3"></div>
+                      18k Yellow Gold
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 mr-3"></div>
+                      18k Rose Gold
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-300 mr-3"></div>
+                      18k White Gold
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Side - Men's Section */}
+                <div className="w-60">
+                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6 font-gintoNord ">
+                    MEN
+                  </h3>
+                  <div className="space-y-4">
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      All Men's Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Classic Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Multi-Colour Wedding Rings
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Unique Wedding Rings
+                    </a>
+                  </div>
+                </div>
+
+                {/* Far Right - Men's by Metal */}
+                <div className="w-60">
+                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6 font-gintoNord ">
+                    MEN'S BY METAL
+                  </h3>
+                  <div className="space-y-4">
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-300 to-gray-500 mr-3"></div>
+                      Platinum
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 mr-3"></div>
+                      Yellow Gold
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 mr-3"></div>
+                      Rose Gold
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-100 to-gray-300 mr-3"></div>
+                      White Gold
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 mr-3"></div>
+                      Titanium
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 mr-3"></div>
+                      Tantalum
+                    </a>
+                    <a href="/wedding-rings/women" className="flex items-center text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gray-900 to-black mr-3"></div>
+                      Carbon Fibre
+                    </a>
+                  </div>
+                </div>
+
+                {/* Wedding Ring Guidance */}
+                <div className="w-60">
+                  <h3 className="text-gray-700 text-sm font-medium tracking-wide mb-6 font-gintoNord ">
+                    WEDDING RING GUIDANCE
+                  </h3>
+                  <div className="space-y-4">
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Wedding Ring Guide
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Design Basics
+                    </a>
+                    <a href="/wedding-rings/women" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Find Your Ring Size
+                    </a>
+                    <a href="/precious-metals-guide" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Precious Metals Guide
+                    </a>
+                    <a href="/crafting-process" className="block text-gray-600 hover:text-[#236339] text-sm transition-colors duration-200 font-gintoNormal">
+                      Our Crafting Process
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        )}
+        {/* Contact Dropdown Menu */}
+        {showContactDropdown && (
+          <div 
+            className="fixed top-16 left-0 w-full pt-4 border-gray-200 shadow-lg z-50"
+            onMouseEnter={() => setShowContactDropdown(true)}
+            onMouseLeave={() => setShowContactDropdown(false)}
+          >
+          <div 
+            className="w-full bg-[#FEFAF5] border-gray-200 shadow-lg z-50"
+          >
+            <div className="max-w-5xl p-4 mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+              <div className="flex gap-12">
+                {/* Left Side - Contact Options */}
+                <div className="w-48 lg:w-[30%]">
+                  <div>
+                    <h3 className="text-gray-700 text-sm font-medium font-gintoNord tracking-wide mb-6">
+                      CONTACT US
+                    </h3>
+                    <div >
+                      <a href="/contact" className="block text-gray-600 hover:bg-[#fff4e6] py-3 px-1 text-sm font-gintoNormal transition-colors duration-200">
+                        Get In Touch
+                      </a>
+                      <a href="/visit" className="block text-gray-600 hover:bg-[#fff4e6] py-3 px-1 text-sm font-gintoNormal transition-colors duration-200">
+                        Book an Appointment
+                      </a>
+                      <a href="/faqs" className="block text-gray-600 hover:bg-[#fff4e6] py-3 px-1 text-sm font-gintoNormal transition-colors duration-200">
+                        FAQs
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - 2x2 Grid similar to jewellery */}
+                <div className="flex-1 lg:w-[70%]">
+                  <div className="grid grid-cols-1 gap-4 ">
+                    {/* Get In Touch */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden lg:mb-2 h-44">
+                        <h3 className="text-gray-700 text-sm font-medium tracking-wide  group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                          GET IN TOUCH
+                        </h3>
+                        <div className="w-full h-full bg-slate-300 flex items-center justify-center">
+                          <Image
+                            src="/images/getintouch.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Book Appointment */}
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden lg:mb-2 h-44">
+                        <h3 className="text-gray-700 text-sm font-medium tracking-wide group-hover:text-[#236339] font-gintoNord transition-colors duration-200">
+                          BOOK AN APPOINTMENT
+                        </h3>
+                        <div className="w-full h-full bg-yellow-200 flex items-center justify-center">
+                          <Image
+                            src="/images/appointment.webp"
+                            width={400}
+                            height={400}
+                            alt="Statement Ring"
+                            className=" h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        )}
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (

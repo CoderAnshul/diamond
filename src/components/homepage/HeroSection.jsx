@@ -4,7 +4,7 @@ import { Star } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <div className="w-full h-[90vh] flex">
+    <div className="w-full h-[85vh] flex">
       {/* Left Panel - Main Hero */}
       <div className="relative w-full lg:w-1/2 overflow-hidden pb-8">
         {/* Background Image */}
@@ -20,7 +20,7 @@ const HeroSection = () => {
         {/* <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div> */}
         
         {/* Content */}
-        <div className="relative z-20 flex flex-col justify-end h-full px-12  lg:px-20">
+        <div className="relative z-20 flex flex-col justify-end pb-12 h-full px-12  lg:px-20">
           {/* Google Reviews Badge */}
           <div className="mb-2">
             <div className="inline-flex items-center bg-white bg-opacity-90 backdrop-blur-sm rounded-full px-4 py-2">
@@ -49,13 +49,13 @@ const HeroSection = () => {
           </h1>
           
           {/* Subheading */}
-          <p className="text-md lg:text-md text-white mb-4 font-light">
+          <p className="text-md lg:text-xs text-white font-gintoNormal mb-4 font-light">
             Engagement rings to make a statement.
           </p>
           
           {/* CTA Button */}
           <div>
-            <button className="bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-5 text-xs tracking-wide transition-colors duration-200">
+            <button className="bg-green-700 hover:bg-green-800 text-white font-light font-gintoNormal py-4 px-5 text-xs tracking-wide transition-colors duration-200">
               EXPLORE ENGAGEMENT
             </button>
           </div>

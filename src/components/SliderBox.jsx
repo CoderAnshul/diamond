@@ -2,33 +2,18 @@
 
 import { useState, useRef, useEffect } from "react"
 
-const SliderBox = () => {
+const SliderBox = ({ 
+  items = [], 
+  title = "Shop Lab Diamond Engagement Rings by Style",
+  subtitle = "Discover our signature setting styles, including solitaire, trilogy, halo, toi et moi and bezel.",
+  ...otherProps 
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(4)
   const sliderRef = useRef(null)
 
-  const ringStyles = [
-    {
-      name: "BEZEL",
-      image: "/images/home-slide-one/one.webp",
-    },
-    {
-      name: "SOLITAIRE",
-      image: "/images/home-slide-one/two.webp",
-    },
-    {
-      name: "TRILOGY",
-      image: "/images/home-slide-one/three.jpg",
-    },
-    {
-      name: "HALO",
-      image: "/images/home-slide-one/four.webp",
-    },
-    {
-      name: "TOI ET MOI",
-      image: "/images/home-slide-one/five.jpg",
-    },
-  ]
+  // Use provided items from props
+  const ringStyles = items
 
   // Update items per view based on screen size
   useEffect(() => {
@@ -67,11 +52,11 @@ const SliderBox = () => {
     <div className="max-w-7xl mx-auto px-4 py-16 ">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
-          Shop By Category
+        <h1 className="text-2xl md:text-3xl lg:text-3xl font-light font-arizona text-gray-800 mb-4">
+          {title}
         </h1>
-        <p className="text-gray-600 text-xs">
-          Explore engagement rings, women's wedding rings, men's wedding rings and fine jewellery.
+        <p className="text-gray-700 font-medium text-xs">
+          {subtitle}
         </p>
       </div>
 
@@ -85,7 +70,7 @@ const SliderBox = () => {
           }}
         >
           {ringStyles.map((style, index) => (
-            <div key={style.name} className="flex-shrink-0 px-3" style={{ width: `${slideWidth}%` }}>
+            <div key={style.id || style.name} className="flex-shrink-0 px-3" style={{ width: `${slideWidth}%` }}>
               <div className="group cursor-pointer ">
                 {/* Ring Image Container */}
                 <div className="aspect-[3/4] md:aspect-[4/5] bg-gray-100 overflow-hidden mb-4 relative transition-transform duration-300 ease-in-out hover:scale-105">
@@ -93,15 +78,14 @@ const SliderBox = () => {
                     className="w-full h-full bg-cover bg-center"
                     style={{
                       backgroundImage: `url(${style.image})`,
-                      backgroundPosition:
-                        index === 0 ? "0% 0%" : index === 1 ? "33.33% 0%" : index === 2 ? "66.66% 0%" : "100% 0%",
+                      backgroundPosition: style.backgroundPosition || "center center",
                     }}
                   />
                 </div>
 
                 {/* Style Name */}
                 <div className="flex items-center justify-start gap-4">
-                  <h3 className="text-xs font-semibold text-gray-900 tracking-wide">{style.name}</h3>
+                  <h3 className="text-xs font-semibold font-gintoNord text-gray-900 tracking-wide">{style.name}</h3>
                    <svg
                         className="w-5 h-4 text-gray-600 group-hover:translate-x-1 transition-transform duration-300"
                         fill="none"

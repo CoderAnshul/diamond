@@ -4,6 +4,7 @@ import VideoSection from "@/components/homepage/VideoSection";
 import SliderBox from "@/components/SliderBox";
 import { 
   ringStyles, 
+  ringStylesTwo, 
   sliderConfigs 
 } from "../data/sliderdata";
 import Collections from "@/components/homepage/Collections";
@@ -29,8 +30,8 @@ export default function Home() {
       <VideoSection />
 
       <SliderBox 
-        items={ringStyles}
-        {...sliderConfigs.ringStyles}
+        items={ringStylesTwo}
+        {...sliderConfigs.ringStylesTwo}
       />
       <Collections className='!flex-row'/>
       <SliderBoxTwo />

@@ -143,7 +143,7 @@ const Collections = ({ className = "" }) => {
         <>
           {/* Mobile Header */}
           <div className="bg px-6 py-8 text-center flex-shrink-0">
-            <h2 className="text-white text-sm font-light tracking-widest mb-4">
+            <h2 className="text-white text-sm font-medium font-gintoNormal tracking-widest mb-4">
               RING COLLECTIONS
             </h2>
             <h3 className="text-white text-2xl font-light tracking-wider">
@@ -249,7 +249,7 @@ const Collections = ({ className = "" }) => {
           {/* Right side - Navigation (50% width) */}
           <div className="w-1/2 bg flex flex-col justify-center items-center px-8 py-12">
             <div className="text-center space-y-2 max-w-md">
-              <h2 className="text-white text-sm font-light tracking-widest mb-12">
+              <h2 className="text-white text-sm font-light font-gintoNord tracking-widest mb-8">
                 RING COLLECTIONS
               </h2>
               
@@ -257,10 +257,10 @@ const Collections = ({ className = "" }) => {
                 {collections.map((collection, index) => (
                   <div key={index} className="relative">
                     <button
-                      className={`text-white text-2xl font-light tracking-wider transition-all duration-300 block w-full text-center ${
+                      className={`text-white text-2xl font-light font-arizona tracking-wider transition-all duration-300 block w-full text-center ${
                         index === activeCollection 
                           ? 'opacity-100 text-white scale-110' 
-                          : 'opacity-70 hover:opacity-100 hover:scale-105'
+                          : 'opacity-70 hover:opacity-100'
                       }`}
                       onClick={() => setActiveCollection(index)}
                       onMouseEnter={() => !isAnimating && setActiveCollection(index)}

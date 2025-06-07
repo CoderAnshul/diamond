@@ -33,7 +33,7 @@ const VideoReviews = () => {
   useEffect(() => {
     const updateItemsPerView = () => {
       if (window.innerWidth >= 1024) {
-        setItemsPerView(3) // lg: show 3
+        setItemsPerView(4) // lg: show 4
       } else if (window.innerWidth >= 768) {
         setItemsPerView(2) // md: show 2
       } else {
@@ -113,13 +113,13 @@ const VideoReviews = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-white">
+    <div className="max-w-7xl mx-auto px-4 py-16">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-2xl md:text-3xl font-light text-gray-800 mb-4">
+        <h1 className="text-2xl md:text-3xl font-arizona font-light text-gray-800 mb-3">
           Shop By Category
         </h1>
-        <p className="text-gray-600 text-xs">
+        <p className="text-gray-600 font-gintoNormal text-xs">
           Explore engagement rings, women's wedding rings, men's wedding rings and fine jewellery.
         </p>
       </div>

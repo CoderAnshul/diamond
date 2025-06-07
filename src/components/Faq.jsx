@@ -7,7 +7,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
     <div className="border-b border-gray-200">
       <button
-        className="w-full py-6 px-0 flex items-center text-left hover:bg-gray-50 transition-colors duration-200"
+        className="w-full py-6 px-0 flex items-center text-left transition-colors duration-200"
         onClick={onToggle}
       >
         <div className="flex-shrink-0 mr-4">
@@ -17,7 +17,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
             }`} 
           />
         </div>
-        <span className="text-gray-800 font-medium text-sm md:text-base uppercase tracking-wide">
+        <span className="text-gray-800 font-medium text-sm md:text-sm font-gintoNord  uppercase tracking-wide">
           {question}
         </span>
       </button>
@@ -26,7 +26,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="pb-6 pl-9 text-gray-600 text-sm md:text-base leading-relaxed">
+        <div className="pb-6 pl-9 text-gray-900 font-gintoNormal text-sm md:text-sm leading-relaxed">
           {answer}
         </div>
       </div>
@@ -80,18 +80,18 @@ export default function Faq() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       {/* Header */}
-      <div className="bg text-white py-16">
+      <div className="bg text-white py-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-light mb-4 tracking-wide">FAQ</h1>
-          <p className="text-emerald-100 text-xs">Your questions, answered.</p>
+          <h1 className="text-4xl md:text-5xl font-light mb-3 font-arizona tracking-wide">FAQ</h1>
+          <p className="text-emerald-100 font-gintoNormal text-sm">Your questions, answered.</p>
         </div>
       </div>
 
       {/* FAQ Content */}
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="bg-white rounded-lg shadow-sm">
+        <div className=" rounded-lg  shadow-sm">
           {faqData.map((item, index) => (
             <FAQItem
               key={index}

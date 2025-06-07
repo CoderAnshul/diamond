@@ -67,8 +67,8 @@ export default function Footer() {
       {/* Top Features Section */}
       <div className="border-b border-emerald-800 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center flex flex-col items-center">
+          <div className="grid grid-cols-2 md:grid-cols-2 font-gintoNord lg:grid-cols-4 gap-8">
+            <div className="text-center flex flex-col  items-center">
               <ShippingIcon />
               <h3 className="font-bold text-sm mb-1">WORLDWIDE</h3>
               <h3 className="font-bold text-sm">EXPRESS SHIPPING</h3>
@@ -100,16 +100,16 @@ export default function Footer() {
             <div>
               {/* Desktop/Large tablet view */}
               <div className="hidden lg:block">
-                <h3 className="font-bold text-sm mb-6">QUICK LINKS</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Ready-To-Ship</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Engagement Rings</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Lab Diamonds</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Moissanite</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Sapphires</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Women's Wedding Rings</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Men's Wedding Rings</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Education</a></li>
+                <h3 className="font-bold text-sm mb-3">QUICK LINKS</h3>
+                <ul className="space-y-1">
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Ready-To-Ship</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Engagement Rings</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Lab Diamonds</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Moissanite</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Sapphires</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Women's Wedding Rings</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Men's Wedding Rings</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Education</a></li>
                 </ul>
               </div>
 
@@ -123,15 +123,15 @@ export default function Footer() {
                   {openAccordions.quickLinks ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
                 {openAccordions.quickLinks && (
-                  <ul className="space-y-3 pt-4">
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Ready-To-Ship</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Engagement Rings</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Lab Diamonds</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Moissanite</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Sapphires</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Women's Wedding Rings</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Men's Wedding Rings</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Education</a></li>
+                  <ul className="space-y-1 pt-4">
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Ready-To-Ship</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Engagement Rings</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Lab Diamonds</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Moissanite</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Sapphires</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Women's Wedding Rings</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Men's Wedding Rings</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Education</a></li>
                   </ul>
                 )}
               </div>
@@ -141,17 +141,17 @@ export default function Footer() {
             <div>
               {/* Desktop/Large tablet view */}
               <div className="hidden lg:block">
-                <h3 className="font-bold text-sm mb-6">ABOUT US</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Our Story</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Reviews</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Moissanite Blog</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Lab Grown Diamond Blog</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Cullen Initiatives</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Careers</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Impact Report</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Precious Metal Recycling</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Cullen Curated</a></li>
+                <h3 className="font-bold text-sm mb-3">ABOUT US</h3>
+                <ul className="space-y-1">
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Our Story</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Reviews</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Moissanite Blog</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Lab Grown Diamond Blog</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Cullen Initiatives</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Careers</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Impact Report</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Precious Metal Recycling</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Cullen Curated</a></li>
                 </ul>
               </div>
 
@@ -165,16 +165,16 @@ export default function Footer() {
                   {openAccordions.aboutUs ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
                 {openAccordions.aboutUs && (
-                  <ul className="space-y-3 pt-4">
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Our Story</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Reviews</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Moissanite Blog</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Lab Grown Diamond Blog</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Cullen Initiatives</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Careers</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Impact Report</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Precious Metal Recycling</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Cullen Curated</a></li>
+                  <ul className="space-y-1 pt-4">
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Our Story</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Reviews</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Moissanite Blog</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Lab Grown Diamond Blog</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Cullen Initiatives</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Careers</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Impact Report</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Precious Metal Recycling</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Cullen Curated</a></li>
                   </ul>
                 )}
               </div>
@@ -184,17 +184,17 @@ export default function Footer() {
             <div>
               {/* Desktop/Large tablet view */}
               <div className="hidden lg:block">
-                <h3 className="font-bold text-sm mb-6">CLIENT CARE</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">FAQs</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Shipping</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Free Resizing</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Order Status</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Ring Size Guide</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Ring Care Guide</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Lifetime Warranty</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Book Appointment</a></li>
-                  <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Crafting Timeframes</a></li>
+                <h3 className="font-bold text-sm mb-3">CLIENT CARE</h3>
+                <ul className="space-y-1">
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">FAQs</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Shipping</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Free Resizing</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Order Status</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Ring Size Guide</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Ring Care Guide</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Lifetime Warranty</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Book Appointment</a></li>
+                  <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Crafting Timeframes</a></li>
                 </ul>
               </div>
 
@@ -208,16 +208,16 @@ export default function Footer() {
                   {openAccordions.clientCare ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
                 {openAccordions.clientCare && (
-                  <ul className="space-y-3 pt-4">
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">FAQs</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Shipping</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Free Resizing</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Order Status</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Ring Size Guide</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Ring Care Guide</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Lifetime Warranty</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Book Appointment</a></li>
-                    <li><a href="#" className="text-sm hover:text-emerald-300 transition-colors block">Crafting Timeframes</a></li>
+                  <ul className="space-y-1 pt-4">
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">FAQs</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Shipping</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Free Resizing</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Order Status</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Ring Size Guide</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Ring Care Guide</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Lifetime Warranty</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Book Appointment</a></li>
+                    <li><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord block">Crafting Timeframes</a></li>
                   </ul>
                 )}
               </div>
@@ -225,8 +225,8 @@ export default function Footer() {
 
             {/* Contact Us - Always visible, no accordion */}
             <div>
-              <h3 className="font-bold text-sm mb-6">CONTACT US</h3>
-              <div className="space-y-3">
+              <h3 className="font-bold text-sm mb-3">CONTACT US</h3>
+              <div className="space-y-1">
                 <div className="flex items-center">
                   <span className="text-sm">📞 +61 1300 977 619</span>
                 </div>
@@ -243,8 +243,8 @@ export default function Footer() {
                   <div>SAT: 3:30 AM - 11:30 AM</div>
                 </div>
                 <div className="space-y-1">
-                  <div><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Get In Touch</a></div>
-                  <div><a href="#" className="text-sm hover:text-emerald-300 transition-colors">Feedback</a></div>
+                  <div><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Get In Touch</a></div>
+                  <div><a href="#" className="text-xs hover:text-emerald-300 transition-colors font-gintoNord">Feedback</a></div>
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function Footer() {
               placeholder="Your email address"
               className="w-full sm:w-auto flex-1 px-4 py-3 text-gray-900 bg-white border-0 focus:outline-none focus:ring-2 focus:ring-emerald-600"
             />
-            <button className="w-full sm:w-auto px-6 py-3 bg-emerald-700 text-white font-medium hover:bg-emerald-600 transition-colors">
+            <button className="w-full sm:w-auto px-6 py-3 bg-emerald-700 text-white font-medium hover:bg-emerald-600 transition-colors font-gintoNord">
               SUBMIT
             </button>
           </div>
@@ -296,23 +296,23 @@ export default function Footer() {
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center space-x-6 mb-6">
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+          <div className="flex justify-center space-x-6 mb-3">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <Instagram className="w-6 h-6" />
             </a>
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <TikTokIcon />
             </a>
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <Facebook className="w-6 h-6" />
             </a>
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <Youtube className="w-6 h-6" />
             </a>
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <PinterestIcon />
             </a>
-            <a href="#" className="hover:text-emerald-300 transition-colors">
+            <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">
               <LinkedInIcon />
             </a>
           </div>
@@ -320,17 +320,17 @@ export default function Footer() {
           {/* Legal Links */}
           <div className="text-center text-xs mb-4">
             <div className="flex flex-wrap justify-center items-center space-x-1">
-              <a href="#" className="hover:text-emerald-300 transition-colors">Terms and Conditions</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Terms and Conditions</a>
               <span>|</span>
-              <a href="#" className="hover:text-emerald-300 transition-colors">Terms of Sale</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Terms of Sale</a>
               <span>|</span>
-              <a href="#" className="hover:text-emerald-300 transition-colors">Privacy</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Privacy</a>
               <span>|</span>
-              <a href="#" className="hover:text-emerald-300 transition-colors">Returns</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Returns</a>
               <span>|</span>
-              <a href="#" className="hover:text-emerald-300 transition-colors">Site Map</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Site Map</a>
               <span>|</span>
-              <a href="#" className="hover:text-emerald-300 transition-colors">Engagement Rings</a>
+              <a href="#" className="hover:text-emerald-300 transition-colors font-gintoNord">Engagement Rings</a>
             </div>
           </div>
 

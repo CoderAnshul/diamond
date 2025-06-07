@@ -38,25 +38,21 @@ export const ringStylesTwo = [
     id: 1,
     name: "LOUISE",
     image: "/images/home-slide-two/one.webp",
-    backgroundPosition: "0% 0%"
   },
   {
     id: 2,
     name: "FRANCESCA",
     image: "/images/home-slide-two/two.webp",
-    backgroundPosition: "33.33% 0%"
   },
   {
     id: 3,
     name: "EMMA",
-    image: "/images/home-slide-two/three.jpg",
-    backgroundPosition: "66.66% 0%"
+    image: "/images/home-slide-two/three.webp",
   },
   {
     id: 4,
     name: "CANDICE",
     image: "/images/home-slide-two/four.webp",
-    backgroundPosition: "100% 0%"
   },
   {
     id: 5,

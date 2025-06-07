@@ -5,7 +5,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #FEFAF5;
   --foreground: #171717;
 }
 
@@ -63,6 +63,39 @@ body {
 .bg{
   background: #253E2B;
 }
+.btn{
+  background-color: #236339;
+}
 .cream{
   background-color: #FEFAF5;
 }
+/* Hide scrollbar for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+  .dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+  
+  .dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+  }
